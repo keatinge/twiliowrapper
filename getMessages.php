@@ -35,7 +35,7 @@
     }
 
     //get all items after that time
-    $query = $pdo->prepare("SELECT * FROM `messages` WHERE `user` = :checkUser AND `time` > :checkTime");
+    $query = $pdo->prepare("SELECT * FROM `messages` WHERE `user` = :checkUser AND `time` > :checkTime LIMIT 100");
     $query->bindParam(":checkUser", $user);
     $query->bindParam(":checkTime", $lastViewTime);
     $query->execute();
